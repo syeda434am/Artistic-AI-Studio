@@ -1,123 +1,105 @@
-# Unified-DeepFake-Detector
-A unified deepfake detection framework for both image and video analysis. This repository includes a TensorFlow-based model leveraging the Xception architecture for shared feature extraction, combined with LSTM for temporal video processing.
+# ArtisticAI Studio
 
-### Key Features
-- Unified architecture for both image and video deepfake detection
-- Based on Xception backbone with additional LSTM layers for temporal analysis
-- Supports both single-frame and multi-frame inputs
-- Comprehensive logging and model checkpointing
-- Modular design for easy maintenance and extension
+Transform your media with AI-powered artistic magic
 
-## Project Structure
-```
-unified-deepfake-detection/
-├── com/
-│   └── mhire/
-│       ├── data_processing/
-│       │   └── data_processing.py
-│       ├── training/
-│       │   └── training.py
-│       └── evaluation/
-│           └── evaluation.py
-├── main.py
-├── requirements.txt
-├── README.md
-└── LICENSE
-```
+## Overview
 
-### Component Description
-- **data_processing.py**: Handles data loading, preprocessing, and dataset splitting
-- **training.py**: Contains the model architecture and training pipeline
-- **evaluation.py**: Manages model evaluation and metrics calculation
-- **main.py**: Entry point of the application, orchestrates the entire pipeline
+ArtisticAI Studio is an innovative web application that brings the power of artificial intelligence to digital media creation. It combines neural style transfer, object detection, and advanced image processing to help users transform their photos and videos into stunning artistic pieces.
 
-## Technical Architecture
-The system uses a dual-branch architecture:
-1. **Image Branch**: Processes single frames using Xception backbone
-2. **Video Branch**: Processes sequences using Xception + LSTM for temporal features
-3. **Unified Output**: Combines both branches for comprehensive detection
+🎨 **Live Demo:**
+- Frontend: https://artisticai.vercel.app
+- API: https://artisticai-api.onrender.com
 
-## Installation
+## Features
+
+- 🖼️ **Neural Style Transfer**
+  - Transform photos using famous artistic styles
+  - Multiple style options (Starry Night, Kandinsky, Picasso, etc.)
+  - Real-time preview
+
+- 🔍 **Smart Object Detection**
+  - Identify objects in images
+  - Accurate bounding boxes
+  - Multiple object categories
+
+- ✨ **Professional Image Editing**
+  - Adjust brightness, contrast, saturation
+  - Temperature and tint controls
+  - Shadow and highlight adjustment
+
+- 🎥 **Video Processing**
+  - Apply effects to video content
+  - Frame-by-frame processing
+  - Maintain video quality
+
+## Tech Stack
+
+- **Frontend:**
+  - React
+  - React Router
+  - Modern UI components
+  - Responsive design
+
+- **Backend:**
+  - FastAPI
+  - PyTorch
+  - Neural network models
+  - Image processing libraries
+
+## Quick Start
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/unified-deepfake-detection.git
-cd unified-deepfake-detection
+git clone https://github.com/yourusername/artisticai.git
+cd artisticai
 ```
 
-2. Create a virtual environment:
+2. Start the backend:
 ```bash
+cd backend
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-3. Install dependencies:
-```bash
+source venv/bin/activate  # or `venv\Scripts\activate` on Windows
 pip install -r requirements.txt
+uvicorn main:app --reload
 ```
 
-## Dataset Structure
-The system expects data in the following structure:
-```
-dataset/
-├── real/
-│   ├── video1/
-│   │   ├── frame001.png
-│   │   ├── frame002.png
-│   │   └── ...
-│   └── ...
-└── fake/
-    ├── video1/
-    │   ├── frame001.png
-    │   ├── frame002.png
-    │   └── ...
-    └── ...
-```
-
-## Usage
-
-1. Update the paths in main.py:
-```python
-base_dir = Path("your/base/directory")
-data_path = base_dir / "Datasets/FaceForensics"
-processed_data_dir = base_dir / "ProcessedData/FaceForensics"
-model_dir = base_dir / "Trained_models/Unified_DeepFake_Detection_Model"
-```
-
-2. Run the pipeline:
+3. Start the frontend:
 ```bash
-python main.py
+cd frontend
+npm install
+npm start
 ```
 
-The system will:
-1. Process and split the dataset (70% train, 15% validation, 15% test)
-2. Train the unified model
-3. Evaluate performance and generate metrics
+4. Open http://localhost:3000 in your browser
 
-## GPU Support
+## Free Hosting Setup
 
-The system automatically detects and utilizes available GPU resources. For optimal performance:
-- CUDA-compatible GPU recommended
-- Minimum 8GB GPU memory
-- Updated GPU drivers
+1. Frontend (Vercel):
+```bash
+cd frontend
+vercel
+```
 
-## Troubleshooting
+2. Backend (Render):
+- Connect your GitHub repository to Render
+- Create a new Web Service using render.yaml configuration
+- Deploy automatically with every push
 
-Common issues and solutions:
+## Project Structure
 
-1. **GPU Memory Error**:
-   - Reduce batch size in training.py
-   - Decrease image size or sequence length
+See [PROJECT_TEMPLATE.md](PROJECT_TEMPLATE.md) for detailed project structure.
 
-2. **Data Loading Error**:
-   - Verify dataset structure
-   - Check file permissions
-   - Ensure correct path configuration
+## Code Templates
 
-3. **Training Instability**:
-   - Adjust learning rate
-   - Modify batch size
-   - Check for data imbalance
+See [CODE_TEMPLATES.md](CODE_TEMPLATES.md) for implementation templates.
+
+## Branding
+
+See [BRANDING.md](BRANDING.md) for brand guidelines and assets.
+
+## License
+
+MIT License - feel free to use for your own projects!
 
 ## Contributing
 
@@ -125,18 +107,10 @@ Common issues and solutions:
 2. Create your feature branch
 3. Commit your changes
 4. Push to the branch
-5. Create a Pull Request
+5. Create a new Pull Request
 
-## License
-This project is licensed under the GNU General Public License v3.0 - see the LICENSE file for details.
+## Support
 
-## Citation
-If you use this code in your research, please cite:
-```
-@project{unified_deepfake_detection,
-  title = {Unified DeepFake Detection System},
-  year = {2025},
-  author = {Syeda Aunanya Mahmud},
-  url = {https://github.com/Aunanya875/Unified-DeepFake-Detector}
-}
-```
+- Create an issue for bug reports
+- Star the repository if you find it useful
+- Fork for your own projects
